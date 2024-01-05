@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Recadinhos Aê</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="background-color: #ffe8ad">
+  <div class="menu-lateral">
+    <a href="index.html">📚 Recadinhos das turmas</a>
+    <a href="RecadinhoAe.html">📚 Recadinhos das Aes</a>
+  
+  </div>
+
+  <font color="#ffc22"><h1>📚 Recadinhos das Aes:</h1></font>
+  <h2>⭐Qual a data?</h2>
+  <p>Exemplo: "(10/12/2023)"</p>
+  <input type="date" id="data" name="data" size="40">
+  <h2>⭐Dia da Semana?</h2>
+  <p>Exemplo: "Sábado"</p>
+  <select id="diaSemana">
+    <option value="Segunda-feira">Segunda-feira</option>
+    <option value="Terça-feira">Terça-feira</option>
+    <option value="Quarta-feira">Quarta-feira</option>
+    <option value="Quinta-feira">Quinta-feira</option>
+    <option value="Sexta-feira">Sexta-feira</option>
+    <option value="Sábado">Sábado</option>
+    <option value="Domingo">Domingo</option>
+  </select>
+  <h2>⭐Qual a hora?</h2>
+  <p>Exemplo: "(14:30)"</p>
+  <input type="time" id="time" name="time" size="40">
+  <h2>⭐Qual o nome do aluno?</h2>
+  <p>Exemplo: "Ana Laura"</p>
+  <input type="text" id="nome" size="40" />
+  <h2>⭐Qual o nível do aluno?</h2>
+  <p>Exemplo: "Ck2"</p>
+  <input type="text" id="nivel" size="40" />
+  <h2>⭐Qual conteúdo foi aplicado em aula?</h2>
+  <p>Exemplo: "Flappy Bird-Code"</p>
+  <input type="text" id="conteudo" size="40" />
+  <h2>⭐Como foi o desenvolvimento da aula?</h2>
+  <p>Exemplo: "O aluno super educado e rápido na aula se interessou bastante no curso, principalmente na parte de programação do seu amigo virtual. Ele se desenvolveu muito bem em aula e fez até partes do código sozinho no Flappy Bird!"</p>
+  <textarea name="dev" id="desenvolvimento" rows="10" cols="30">Desenvolvimento da aula</textarea>
+  <br>
+  <h2>⭐Ele(a) tem condições de frequentar o Curso? .</h2>
+  <select id="cond">
+    <option value="Sim">Sim</option>
+    <option value="Não">Não</option>
+  </select>
+
+  <h2>⭐Qual nível o Professor indica?</h2>
+  <p>Exemplo: "CK1 ou CK2"</p>
+  <input type="text" id="modulo" size="40" />
+  <h2>⭐Tem equipamento para fazer o curso?</h2>
+  <select id="equip">
+    <option value="Sim">Sim</option>
+    <option value="Não">Não</option>
+  </select>
+  <h2>⭐Probabilidade de se matricular:</h2>
+  <select id="prob">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <h2>⭐Projeto feito pelo aluno:</h2>
+  <p>Exemplo: "Link"</p>
+  <input type="text" id="link" size="40" />
+
+  <button onclick="updatePrint()">Gerar Avalição!</button>
+  <p id="printText"></p>
+  <font color="#ffc22"><h1>📚 Recadinho gerado</h1></font>
+
+  <script>
+    function updatePrint() {
+      var diaSemana = document.getElementById("diaSemana").value;
+      var data = document.getElementById("data").value;
+      var time = document.getElementById("time").value;
+      var nome = document.getElementById("nome").value;
+      var nivel = document.getElementById("nivel").value;
+      var conteudo = document.getElementById("conteudo").value;
+      var desenvolvimento = document.getElementById("desenvolvimento").value;
+
+      var modulo = document.getElementById("modulo").value;
+      var equip = document.getElementById("equip").value;
+      var cond = document.getElementById("cond").value;
+      var link = document.getElementById("link").value;
+      var prob = document.getElementById("prob").value;
+
+      var printText = "⭐Data:" + data + "\n⭐ Dia da Semana: " + diaSemana + "\n⭐ Horário: " + time +
+        "\n--------------------------------------\nQual conteúdo foi aplicado em aula?\n" + 
+        conteudo + "\n⭐ Como foi o desenvolvimento da aula?\n" + desenvolvimento + "\n⭐ Ele(a) tem condições de frequentar o Curso?\n" + cond + 
+        "\n⭐ Qual nível o Professor indica?\n" + nivel + "\n⭐ Tem equipamento para fazer o curso?\n" + equip + "\n⭐ Probabilidade de se matricular:\n" + 
+        prob + "\n📒Projeto que o aluno fez:\n" + link + "";
+      document.getElementById("printText").innerText = printText;
+    }
+  </script>
+
+  <br>
+  <button onclick="copyText()">Copiar Avaliação!</button>
+
+  <script>
+    function copyText() {
+      var copyText = document.getElementById("printText").innerText;
+      navigator.clipboard.writeText(copyText);
+      alert("Recadinho copiado com sucesso!");
+    }
+  </script>
+
+  <font color="#ffc22"><h1>📚 Edição Avalição</h1></font>
+  <p>Caso deseje editar o recado após copiá-lo, basta colar o conteúdo na área de transferência e em seguida copiá-lo novamente</p>
+  <font color="#ffc22"><h>⭐----------------------------------------------------⭐</h></font>
+
+  <textarea name="recadinho" id="recadinho" rows="10" cols="30"></textarea>
+  <br>
+  <button onclick="editarTexto()">Editar Avalição</button>
+  <button onclick="copiarTexto()">Copiar Avalição</button>
+
+  <script>
+    function copiarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      navigator.clipboard.writeText(recadinho);
+      alert("Avalição copiado!");
+    }
+
+    function editarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      if (confirm("Deseja editar o recadinho antes de copiar?")) {
+        let novoRecadinho = prompt("Edite a avalição:", recadinho);
+        if (novoRecadinho !== null) {
+          document.getElementById("recadinho").value = novoRecadinho;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

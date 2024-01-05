@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <title>Recadinhos</title>
+ <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<div class="menu-lateral">
+  <a href="index.html">👻</a>
+  </br>
+  <a href="index.html">📚Recadinhos das turmas</a>
+  </br>
+  <a href="RecadinhoAe.html">📚Recadinhos das Aes</a>
+  </br>
+
+</div>
+ 
+<body style="background-color: #ffe8ad">
+ <font color="#ffc22"><h1>📚Recadinhos das turmas:</h1></font>
+  
+ <h2>⭐Qual o seu nome?</h2>
+   <p>Exemplo:"a Professora Gabriela"</p>
+      <input type="text" id="prof" size="40" /> 
+    <h2>⭐Qual Módulo, Horário e dia da semana?</h2>
+ <p>Exemplo:"Ck2 Segunda- feira às-9h"</p>
+    <input type="text" id="modulo" size="40" /> 
+    <h2>⭐Qual a data?</h2>
+   <p>Exemplo:"(10/12/2023)"</p>
+<input type="date" id="data" name="data" size="40">
+    <h2>⭐Qual o conteúdo do recadinho?</h2>
+   <p>Exemplo:"Hoje vimos html, css..."</p>
+    <textarea name="conteudo" id="conteudo" rows="10" cols="30">Conteúdo do recadinho</textarea>
+</br>
+ <h2>⭐Link da aula gravada.</h2>
+   <p>Exemplo:"Link Meet"</p>
+    <input type="text" id="link_aula" size="40" /> 
+   <h2>⭐Link Extras</h2>
+   <p>Exemplo:"Link de atividade ou sites"</p>
+   <textarea name="text" id="link_extras" rows="10" cols="30">Conteúdo extra!</textarea>
+
+    <button onclick="updatePrint()">Gerar Recadinho!</button>
+    <p id="printText"></p>
+ <font color="#ffc22"><h1>📚Recadinho gerado</h1></font>
+
+ <script>
+    function updatePrint() {
+      var prof = document.getElementById("prof").value;
+      var modulo = document.getElementById("modulo").value;
+      var data = document.getElementById("data").value;
+      var conteudo = document.getElementById("conteudo").value;
+      var link_aula = document.getElementById("link_aula").value;
+      var link_extras = document.getElementById("link_extras").value;
+var printText = "Olá pais, mães e responsáveis!\n Tudo bem? Aqui é " + prof + "\n\n⭐Módulo: " + modulo + "\n🗓️Data: " + data + "\n--------------------------\n📚Conteúdo da aula de hoje: " + conteudo + "\n🎥Link da aula gravada: " + link_aula + "\n⭐Link Extras: " + link_extras + "\nQualquer dúvida estou à disposição😘";
+document.getElementById("printText").innerText = printText;
+    }
+ </script>
+</br>
+ <button onclick="copyText()">Copiar Recadinho!</button>
+
+ <script>
+ function copyText() {
+   var copyText = document.getElementById("printText").innerText;
+   navigator.clipboard.writeText(copyText);
+   alert("Recadinho copiado com sucesso!");
+ }
+ </script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Recadinhos</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script>
+   function copiarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      navigator.clipboard.writeText(recadinho);
+      alert("Recadinho copiado!");
+   }
+
+   function editarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      if (confirm("Deseja editar o recadinho antes de copiar?")) {
+        let novoRecadinho = prompt("Edite o recadinho:", recadinho);
+        if (novoRecadinho !== null) {
+          document.getElementById("recadinho").value = novoRecadinho;
+        }
+      }
+   }
+  </script>
+  </head>
+  <body style="background-color: #ffe8ad">
+  <font color="#ffc22"><h1>📚Edição Recadinho</ h1></font>
+    <p>
+    Caso deseje editar o recado após copiá-lo, basta colar o conteúdo na área de transferência e em seguida copia-lo novamente</p>
+  <font color="#ffc22"><h>⭐----------------------------------------------------⭐</h></font>
+
+  <textarea name="recadinho" id="recadinho" rows="10" cols="30"></textarea>
+  <br>
+  <button onclick="editarTexto()">Editar Recadinho</button>
+    <button onclick="copiarTexto()">Copiar Recadinho</button>
+
+
+  </body>
+  </html>
+</body>
+
+</html>
