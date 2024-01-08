@@ -11,11 +11,16 @@
 
 <body style="background-color: #ffe8ad">
   <div class="menu-lateral">
+    <a href="index.html">👻</a>
+    <br>
     <a href="index.html">📚 Recadinhos das turmas</a>
+    <br>
     <a href="RecadinhoAe.html">📚 Recadinhos das Aes</a>
   </div>
 
-  <font color="#ffc22"><h1>📚 Recadinhos das Aes:</h1></font>
+  <font color="#ffc22">
+    <h1>📚 Recadinhos das Aes:</h1>
+  </font>
   <h2>⭐Qual a data?</h2>
   <p>Exemplo: "(10/12/2023)"</p>
   <input type="date" id="data" name="data" size="40">
@@ -80,7 +85,9 @@
 
   <button onclick="updatePrint()">Gerar Avaliação!</button>
   <p id="printText"></p>
-  <font color="#ffc22"><h1>📚 Recadinho gerado</h1></font>
+  <font color="#ffc22">
+    <h1>📚 Recadinho gerado</h1>
+  </font>
 
   <script>
     function updatePrint() {
@@ -98,11 +105,11 @@
       var link = document.getElementById("link").value;
       var prob = document.getElementById("prob").value;
 
-      var printText = "⭐Data:" + data + "\n⭐ Dia da Semana: " + diaSemana + "\n⭐ Horário: " + time +"⭐Nome do aluno"+nome+
-        "\n--------------------------------------\nQual conteúdo foi aplicado em aula?\n" + 
-        conteudo + "\n⭐ Como foi o desenvolvimento da aula?\n" + desenvolvimento + "\n⭐ Ele(a) tem condições de frequentar o Curso?\n" + cond + 
-        "\n⭐ Qual nível o Professor indica?\n" + nivel + "\n⭐ Tem equipamento para fazer o curso?\n" + equip + "\n⭐ Probabilidade de se matricular:\n" + 
-        prob + "\n📒Projeto que o aluno fez:\n" + link + "";
+      var printText = "⭐Data:" + data + "\n⭐ Dia da Semana: " + diaSemana + "\n⭐ Horário: " + time + "\n⭐ Nome do Aluno: " + nome + "\n⭐ Nível do Aluno: " + nivel +
+        "\n--------------------------------------\nQual conteúdo foi aplicado em aula?\n" +
+        conteudo + "\n⭐ Como foi o desenvolvimento da aula?\n" + desenvolvimento + "\n⭐ Ele(a) tem condições de frequentar o Curso?\n" + cond +
+        "\n⭐ Qual nível o Professor indica?\n" + nivel + "\n⭐ Tem equipamento para fazer o curso?\n" + equip + "\n⭐ Probabilidade de se matricular:\n" +
+        prob + "\n📒Projeto que o aluno fez:\n" + link;
       document.getElementById("printText").innerText = printText;
     }
   </script>
@@ -116,4 +123,38 @@
       navigator.clipboard.writeText(copyText);
       alert("Recadinho copiado com sucesso!");
     }
- 
+  </script>
+
+  <font color="#ffc22">
+    <h1>📚 Edição Avaliação</h1>
+  </font>
+  <p>Caso deseje editar o recado após copiá-lo, basta colar o conteúdo na área de transferência e em seguida copiá-lo novamente</p>
+  <font color="#ffc22">
+    <h>⭐----------------------------------------------------⭐</h>
+  </font>
+
+  <textarea name="recadinho" id="recadinho" rows="10" cols="30"></textarea>
+  <br>
+  <button onclick="editarTexto()">Editar Avaliação</button>
+  <button onclick="copiarTexto()">Copiar Avaliação</button>
+
+  <script>
+    function copiarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      navigator.clipboard.writeText(recadinho);
+      alert("Avaliação copiada!");
+    }
+
+    function editarTexto() {
+      let recadinho = document.getElementById("recadinho").value;
+      if (confirm("Deseja editar a avaliação antes de copiar?")) {
+        let novaAvaliacao = prompt("Edite a avaliação:", recadinho);
+        if (novaAvaliacao !== null) {
+          document.getElementById("recadinho").value = novaAvaliacao;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
