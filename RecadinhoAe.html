@@ -13,7 +13,6 @@
   <div class="menu-lateral">
     <a href="index.html">📚 Recadinhos das turmas</a>
     <a href="RecadinhoAe.html">📚 Recadinhos das Aes</a>
-  
   </div>
 
   <font color="#ffc22"><h1>📚 Recadinhos das Aes:</h1></font>
@@ -79,7 +78,7 @@
   <p>Exemplo: "Link"</p>
   <input type="text" id="link" size="40" />
 
-  <button onclick="updatePrint()">Gerar Avalição!</button>
+  <button onclick="updatePrint()">Gerar Avaliação!</button>
   <p id="printText"></p>
   <font color="#ffc22"><h1>📚 Recadinho gerado</h1></font>
 
@@ -99,7 +98,7 @@
       var link = document.getElementById("link").value;
       var prob = document.getElementById("prob").value;
 
-      var printText = "⭐Data:" + data + "\n⭐ Dia da Semana: " + diaSemana + "\n⭐ Horário: " + time +
+      var printText = "⭐Data:" + data + "\n⭐ Dia da Semana: " + diaSemana + "\n⭐ Horário: " + time +"⭐Nome do aluno"+nome+
         "\n--------------------------------------\nQual conteúdo foi aplicado em aula?\n" + 
         conteudo + "\n⭐ Como foi o desenvolvimento da aula?\n" + desenvolvimento + "\n⭐ Ele(a) tem condições de frequentar o Curso?\n" + cond + 
         "\n⭐ Qual nível o Professor indica?\n" + nivel + "\n⭐ Tem equipamento para fazer o curso?\n" + equip + "\n⭐ Probabilidade de se matricular:\n" + 
@@ -117,34 +116,4 @@
       navigator.clipboard.writeText(copyText);
       alert("Recadinho copiado com sucesso!");
     }
-  </script>
-
-  <font color="#ffc22"><h1>📚 Edição Avalição</h1></font>
-  <p>Caso deseje editar o recado após copiá-lo, basta colar o conteúdo na área de transferência e em seguida copiá-lo novamente</p>
-  <font color="#ffc22"><h>⭐----------------------------------------------------⭐</h></font>
-
-  <textarea name="recadinho" id="recadinho" rows="10" cols="30"></textarea>
-  <br>
-  <button onclick="editarTexto()">Editar Avalição</button>
-  <button onclick="copiarTexto()">Copiar Avalição</button>
-
-  <script>
-    function copiarTexto() {
-      let recadinho = document.getElementById("recadinho").value;
-      navigator.clipboard.writeText(recadinho);
-      alert("Avalição copiado!");
-    }
-
-    function editarTexto() {
-      let recadinho = document.getElementById("recadinho").value;
-      if (confirm("Deseja editar o recadinho antes de copiar?")) {
-        let novoRecadinho = prompt("Edite a avalição:", recadinho);
-        if (novoRecadinho !== null) {
-          document.getElementById("recadinho").value = novoRecadinho;
-        }
-      }
-    }
-  </script>
-</body>
-
-</html>
+ 
